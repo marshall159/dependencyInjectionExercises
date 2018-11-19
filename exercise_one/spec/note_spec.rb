@@ -1,5 +1,7 @@
 require 'note'
 
+# continue with testing Note class 
+
 describe Note do
 
     it "works" do
