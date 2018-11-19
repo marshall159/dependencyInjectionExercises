@@ -1,9 +1,12 @@
 require 'greeter'
 
-# continue with testing Note class 
-
 describe Greeter do
-    it "works" do
-        expect(2 + 2).to eq 4
+
+    it "#greet prints your name" do
+        environment = double("Kernel") 
+        allow(environment).to receive_message_chain(:gets, :chomp => 'Aneel')
+        subject = Greeter.new(environment)
+        
+        expect { subject.greet }.to output("What is your name?\nHello, Aneel\n").to_stdout
     end
 end
